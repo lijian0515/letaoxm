@@ -44,17 +44,21 @@
 <script src="../res/mui/js/mui.min.js"></script>
 <script src="../../assets/jquery/jquery.min.js"></script>
 <script>
+    // 给登录按钮设置点击事件
     $('.button').on('click',function(){
+        // 发送ajax请求
         $.ajax ({
         url: '/api/user/login',
         type:'post',
         data:{
+            // 获取input里的内容发送到后端
             username:$('input[name="name"]').val(),
             password:$('input[name="pass"]').val()
 
         },
+        
         success:function(datas){
-            console.log(datas);
+            // 检测数据
             if(datas.success){
                 location.href='./index.html'
             }
